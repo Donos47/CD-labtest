@@ -7,9 +7,9 @@ files :
 
 hooks :
   BeforeInstall :
-    - location : Scripts/installserver
+    - location : Scripts/installserver.sh
       timeout : 300
       runas : root
-    - location : Scripts/startserver
+    - location : Scripts/startserver.sh
       timeout : 300
       runas : root
