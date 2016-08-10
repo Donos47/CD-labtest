@@ -6,17 +6,21 @@ files :
     destination : /var/www/html/
 
 hooks :
-  BeforeInstall :
-    - location : Scripts/installserver.sh
+  ApplicationStop :
+    - location : Scripts/stopserver.sh
       timeout : 300
       runas : root
-    - location : Scripts/startserver.sh
+  BeforeInstall :
+    - location : Scripts/installserver.sh
       timeout : 300
       runas : root
     - location : Scripts/elb_deregister.sh
       timeout : 300
       runas : root
-  ApplicationStop :
-    - location : Scripts/stopserver.sh
-      timeout : 300
-      runas : root
+  AfterInstall :
+      - location : Scripts/startserver.sh
+        timeout : 300
+        runas : root
+      - location : Scripts/elb_register.sh
+        timeout : 300
+        runas : root
