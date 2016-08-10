@@ -1,0 +1,15 @@
+version : 0.0
+os : linux
+
+files :
+  - source : /files/index.html
+    destination : /var/www/html/
+
+hooks :
+  BeforeInstall :
+    - location : scripts/installserver
+      timeout : 300
+      runas : root
+    - location : scripts/startserver
+      timeout : 300
+      runas : root
