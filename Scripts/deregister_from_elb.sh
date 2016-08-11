@@ -13,7 +13,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-. $(dirname $0)/elb_other.sh
+. $(dirname $0)/common_functions.sh
 
 msg "Running AWS CLI with region: $(get_instance_region)"
 
@@ -31,7 +31,7 @@ msg "Checking if instance $INSTANCE_ID is part of an AutoScaling group"
 asg=$(autoscaling_group_name $INSTANCE_ID)
 if [ $? == 0 -a -n "${asg}" ]; then
     msg "Found AutoScaling group for instance $INSTANCE_ID: ${asg}"
-
+    
     msg "Checking that installed CLI version is at least at version required for AutoScaling Standby"
     check_cli_version
     if [ $? != 0 ]; then

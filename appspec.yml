@@ -9,18 +9,13 @@ hooks :
   ApplicationStop :
     - location : Scripts/stopserver.sh
       timeout : 300
-      runas : root
   BeforeInstall :
     - location : Scripts/installserver.sh
       timeout : 300
-      runas : root
-    - location : Scripts/elb_deregister.sh
+    - location : Scripts/deregister_from_elb.sh
       timeout : 300
-      runas : root
   AfterInstall :
       - location : Scripts/startserver.sh
         timeout : 300
-        runas : root
-      - location : Scripts/elb_register.sh
+      - location : Scripts/register_with_elb.sh
         timeout : 300
-        runas : root
