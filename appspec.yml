@@ -19,3 +19,11 @@ hooks :
         timeout : 300
       - location : Scripts/register_with_elb.sh
         timeout : 300
+
+
+#Commits worth noting:
+#Working deploys:
+#15 : elb 7 [62f5a3e2327a38d90813b4dbe023c0f0a6eee709] = working with ELB Scripts
+#5 : *head bash* [5fe5f2d0a68ad669191216fd949051ceec9239ee] = working basic deploy
+#4 : -_- [6209c6222e4463cacf69ab1d2e096decbcd154f3] = forgot .sh file extension
+#3 : dumbass fix [6dd091908d88b80b3d42df3ed3523729c41bc076] = misspelled appspec.yml
